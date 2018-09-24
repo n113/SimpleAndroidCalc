@@ -69,25 +69,43 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         double b = stringTodouble(numB.getText().toString());
         Math math = new Math();
 
+        TextView historyTV=findViewById(R.id.historyTV);
+        String numA=String.valueOf(a);
+        String numB=String.valueOf(b);
+        String operations=null;
+        String equals=" = ";
+        String result=null;
+
+
         switch(operation){
             case 0 :
-                resultTV.setText(null);
-                resultTV.setText(String.valueOf(math.sum(a,b)));
+                result=String.valueOf(math.sum(a,b));
+                resultTV.setText(result);
+                operations="+";
                 break;
             case 1 :
-                resultTV.setText(null);
-                resultTV.setText(String.valueOf(math.subs(a,b)));
+                result=String.valueOf(math.subs(a,b));
+                resultTV.setText(result);
+                operations="-";
+
                 break;
             case 2 :
-                resultTV.setText(null);
-                resultTV.setText(String.valueOf(math.multyp(a,b)));
+                result=String.valueOf(math.multyp(a,b));
+                resultTV.setText(result);
+                operations="*";
                 break;//
             case 3 :
-                resultTV.setText(null);
-                resultTV.setText(String.valueOf(math.devide(a,b)));
+                result=String.valueOf(math.devide(a,b));
+                resultTV.setText(result);
+                operations="/";
                 break;
         }
+
+        String history=numA+operations+numB+equals+result;
+        historyTV.setText(history);
+
     }
+
 
     public void makeToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
