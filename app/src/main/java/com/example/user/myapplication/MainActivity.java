@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             case 2 :
                 resultTV.setText(null);
                 resultTV.setText(String.valueOf(math.multyp(a,b)));
-                break;
+                break;//
             case 3 :
                 resultTV.setText(null);
                 resultTV.setText(String.valueOf(math.devide(a,b)));
