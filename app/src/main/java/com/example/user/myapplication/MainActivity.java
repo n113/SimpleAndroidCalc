@@ -1,5 +1,6 @@
 package com.example.user.myapplication;
 
+import android.bluetooth.BluetoothClass;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,11 @@ import android.widget.Toast;
 import android.view.View.OnClickListener;
 
 public class MainActivity extends AppCompatActivity implements OnClickListener{
+    public static final int SUM = 0;
+    public static final int SUBSTRACT = 1;
+    public static final int MULTIPLY = 2;
+    public static final int DEVIDE = 3;
+
     TextView resultTV;
     EditText numA;
     EditText numB ;
@@ -74,20 +80,20 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
         switch(operation){
             case 0 :
-                result=math.getResult(a,b,0);
+                result=math.getResult(a,b,SUM);
                 resultTV.setText(result);
                 operations=" + ";
                 break;
             case 1 :
-                result=math.getResult(a,b,1);
+                result=math.getResult(a,b,SUBSTRACT);
                 resultTV.setText(result);
                 break;
             case 2 :
-                result=math.getResult(a,b,2);
+                result=math.getResult(a,b,MULTIPLY);
                 resultTV.setText(result);
                 break;
             case 3 :
-                result=math.getResult(a,b,3);
+                result=math.getResult(a,b,DEVIDE);
                 resultTV.setText(result);
                 break;
         }

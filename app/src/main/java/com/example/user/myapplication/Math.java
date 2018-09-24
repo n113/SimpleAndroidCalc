@@ -20,30 +20,28 @@ public class Math {
     }
 
     public String getResult(String numA, String numB, int operation){
-
         double a = stringTodouble(numA);
         double b = stringTodouble(numB);
-
-        Math math = new Math();
         String toReturn=null;
+
         switch(operation){
             case 0 :
-                toReturn= String.valueOf(math.sum(a,b));
+                toReturn= String.valueOf(sum(a,b));
                 break;
             case 1 :
-                toReturn= String.valueOf(math.subs(a,b));
+                toReturn= String.valueOf(subs(a,b));
                 break;
             case 2 :
-                toReturn= String.valueOf(math.multyp(a,b));
+                toReturn= String.valueOf(multyp(a,b));
                 break;//
             case 3 :
-                toReturn= String.valueOf(math.devide(a,b));
+                toReturn= String.valueOf(devide(a,b));
                 break;
         }
         return  toReturn;
     }
 
-    public double stringTodouble(String string){
+    private double stringTodouble(String string){
         Scanner scanner = new Scanner(string);
         return scanner.nextDouble();
     }
