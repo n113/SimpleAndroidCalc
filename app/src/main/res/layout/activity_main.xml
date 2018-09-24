@@ -15,36 +15,50 @@
             android:id="@+id/resultTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp" />
+            android:textSize="40dp"
+            tools:text="Result" />
 
         <TextView
             android:id="@+id/historyTV"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="History" />
 
         <LinearLayout
+            android:id="@+id/histroryTvsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/numA"
+            <TextView
+                android:id="@+id/tvNumA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                tools:text="0" />
+                android:layout_weight="1" />
 
-            <EditText
-                android:id="@+id/numB"
+            <TextView
+                android:id="@+id/tvOperation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="numberDecimal"
-                tools:text="0" />
+                android:layout_weight="1" />
 
+            <TextView
+                android:id="@+id/tvNumB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvEquals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tvResultHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -98,22 +112,22 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/b1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1" />
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/b2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2" />
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/b3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3" />
@@ -121,22 +135,22 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/b4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4" />
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/b5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5" />
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/b6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6" />
@@ -144,22 +158,22 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/button13"
+                    android:id="@+id/b7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="7" />
 
                 <Button
-                    android:id="@+id/button14"
+                    android:id="@+id/b8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="8" />
 
                 <Button
-                    android:id="@+id/button15"
+                    android:id="@+id/b9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="9" />
@@ -167,7 +181,7 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/clearBtn"
@@ -176,16 +190,16 @@
                     android:text="С" />
 
                 <Button
-                    android:id="@+id/button17"
+                    android:id="@+id/b0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/button18"
+                    android:id="@+id/bEquals"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:text="=" />
             </TableRow>
         </TableLayout>
 
