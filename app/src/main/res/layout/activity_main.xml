@@ -29,15 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 tools:text="0" />
-
-            <Spinner
-                android:id="@+id/operationsSpinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:spinnerMode="dialog" />
 
             <EditText
                 android:id="@+id/numB"
@@ -45,18 +38,57 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 tools:text="0" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button"
+        <LinearLayout
+            android:id="@+id/operationsLayout"
             android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="onClear"
-            android:clickable="true"
-            android:text="clear" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/sumBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:text="+" />
+
+            <Button
+                android:id="@+id/subsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/multyplBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:text="*" />
+
+            <Button
+                android:id="@+id/devideBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:text="/" />
+            <Button
+                android:id="@+id/clearBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:text="C" />
+        </LinearLayout>
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
