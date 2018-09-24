@@ -65,13 +65,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
 
     public void setResultTV(int operation){
-        double a = stringTodouble(numA.getText().toString());
-        double b = stringTodouble(numB.getText().toString());
-        Math math = new Math();
-
         TextView historyTV=findViewById(R.id.historyTV);
-        String numA=String.valueOf(a);
-        String numB=String.valueOf(b);
+        String a=numA.getText().toString();
+        String b=numB.getText().toString();
         String operations=null;
         String equals=" = ";
         String result=null;
@@ -79,31 +75,50 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
         switch(operation){
             case 0 :
-                result=String.valueOf(math.sum(a,b));
+                result=getResult(a,b,0);
                 resultTV.setText(result);
-                operations="+";
+                operations=" + ";
                 break;
             case 1 :
-                result=String.valueOf(math.subs(a,b));
+                result=getResult(a,b,1);
                 resultTV.setText(result);
-                operations="-";
-
                 break;
             case 2 :
-                result=String.valueOf(math.multyp(a,b));
+                result=getResult(a,b,2);
                 resultTV.setText(result);
-                operations="*";
-                break;//
+                break;
             case 3 :
-                result=String.valueOf(math.devide(a,b));
+                result=getResult(a,b,3);
                 resultTV.setText(result);
-                operations="/";
                 break;
         }
 
-        String history=numA+operations+numB+equals+result;
+        String history=a+operations+b+equals+result;
         historyTV.setText(history);
+    }
 
+    public String getResult(String numA, String numB, int operation){
+
+        double a = stringTodouble(numA);
+        double b = stringTodouble(numB);
+
+        Math math = new Math();
+        String toReturn=null;
+        switch(operation){
+            case 0 :
+                toReturn= String.valueOf(math.sum(a,b));
+                break;
+            case 1 :
+                toReturn= String.valueOf(math.subs(a,b));
+                break;
+            case 2 :
+                toReturn= String.valueOf(math.multyp(a,b));
+                break;//
+            case 3 :
+                toReturn= String.valueOf(math.devide(a,b));
+                break;
+        }
+        return  toReturn;
     }
 
 
