@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     int opetation=0;
 
     TextView resultTV;
-    TextView historyTV;
     TextView tvNumA;
     TextView tvOperation;
     TextView tvNumB;
     TextView tvEquals;
     TextView tvResultHistory;
+    TextView historyTV;
     Math math;
 
     @Override
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         resultTV = findViewById(R.id.resultTV);
+        historyTV = findViewById(R.id.historyTV);
+
         math=new Math();
 
         tvNumA=findViewById(R.id.tvNumA);
@@ -144,25 +146,26 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         tvNumB.setText(null);
         opetation=0;
         tvResultHistory.setText(null);
+        historyTV.setText(null);
     }
 
     public void bOperations(int operation){
         switcher=1;
         switch (operation){
             case(SUM):
-                tvOperation.setText("+");
+                historyTV.append("+");
                 opetation=SUM;
                 break;
             case(SUBSTRACT):
-                tvOperation.setText("-");
+                historyTV.append("-");
                 opetation=SUBSTRACT;
                 break;
             case(MULTIPLY):
-                tvOperation.setText("*");
+                historyTV.append("*");
                 opetation=MULTIPLY;
                 break;
             case(DEVIDE):
-                tvOperation.setText("/");
+                historyTV.append("/");
                 opetation=DEVIDE;
                 break;
         }
@@ -177,25 +180,30 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         switch (switcher){
             case (0):
                 tvNumA.append(String.valueOf(buttonValue));
+                historyTV.append(String.valueOf(buttonValue));
                 break;
             case(1):
                 tvNumB.append(String.valueOf(buttonValue));
+                historyTV.append(String.valueOf(buttonValue));
                 break;
         }
     }
 
     public void bEquals(){
-        String a=tvNumA.getText().toString();
-        String b=tvNumB.getText().toString();
-        if(a.equals("0301")&b.equals("1994")){
-            olololol();
+        try{
+            String a=tvNumA.getText().toString();
+            String b=tvNumB.getText().toString();
+            if(a.equals("0301")&b.equals("1994")){
+                olololol();
+            }
+            else{
+                resultTV.setText(math.getResult(a,b,opetation));
+            }
         }
-        else{
-            tvResultHistory.setText("ololo");
-            resultTV.setText(math.getResult(a,b,opetation));
-            makeToast(a+",  "+b+",  "+opetation+"  ");
-            //tvResultHistory.setText(math.getResult(a,b,opetation));
+        catch(Exception e){
+            makeToast("fill all the fields!");
         }
+
 
     }
 
