@@ -1,5 +1,7 @@
 package com.example.user.myapplication;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,8 +29,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     TextView historyTV;
     Math math;
 
+    BlankFragment fragment;
+    FragmentTransaction transaction; //see fManagement method for way of boject initialisation
+    FragmentManager fManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fManager=getSupportFragmentManager();
+        fragment = new BlankFragment();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         resultTV = findViewById(R.id.resultTV);
@@ -190,10 +198,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     }
 
     public void bEquals(){
+        fManagement();
         try{
             String a=tvNumA.getText().toString();
             String b=tvNumB.getText().toString();
-            if(a.equals("0301")&b.equals("1994")){
+            if((a.equals("0301")&b.equals("1994"))||(a.equals("0701")&b.equals("1992"))){
                 olololol();
             }
             else{
@@ -205,6 +214,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
         }
 
 
+    }
+
+    public void fManagement(){
+        transaction=fManager.beginTransaction();
+        transaction.replace(R.id.fragmentLayout, fragment);
+        transaction.commit();
     }
 
     public void makeToast(String text) {
@@ -242,6 +257,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
 
     }
+
 
 
 

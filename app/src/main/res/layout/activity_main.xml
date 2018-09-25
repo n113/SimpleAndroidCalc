@@ -173,7 +173,6 @@
                     android:id="@+id/clearBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#FFFF6940"
                     android:text="С" />
 
                 <Button
@@ -197,6 +196,12 @@
                     android:text="/" />
             </TableRow>
         </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/fragmentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical"></LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
