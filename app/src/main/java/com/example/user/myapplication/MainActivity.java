@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
@@ -16,26 +15,24 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     public static final int MULTIPLY = 2;
     public static final int DEVIDE = 3;
 
-    int switcherBeetweenSmallTV=0;
-    String valuseForSmallTV="";
-    int whichOperation;
+    int switcher=0;
+    int opetation=0;
 
     TextView resultTV;
-    EditText numA;
-    EditText numB ;
     TextView historyTV;
-
     TextView tvNumA;
     TextView tvOperation;
     TextView tvNumB;
     TextView tvEquals;
     TextView tvResultHistory;
+    Math math;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         resultTV = findViewById(R.id.resultTV);
+        math=new Math();
 
         tvNumA=findViewById(R.id.tvNumA);
         tvNumB=findViewById(R.id.tvNumB);
@@ -87,123 +84,119 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
+            //                          assigment operations buttons
             case R.id.sumBtn:
-                whichOperation=SUM;
-                switcherBeetweenSmallTV=1;
-                setSmallTv("+");
-                valuseForSmallTV="";
-                switcherBeetweenSmallTV=2;
+                bOperations(SUM);
                 break;
             case R.id.subsBtn:
-                switcherBeetweenSmallTV=1;
-                setSmallTv("+");
-                valuseForSmallTV="";
-                switcherBeetweenSmallTV=2;
+                bOperations(SUBSTRACT);
                 break;
             case R.id.multyplBtn:
-                switcherBeetweenSmallTV=1;
-                setSmallTv("+");
-                valuseForSmallTV="";
-                switcherBeetweenSmallTV=2;
+                bOperations(MULTIPLY);
                 break;
             case R.id.devideBtn:
-                switcherBeetweenSmallTV=1;
-                setSmallTv("+");
-                valuseForSmallTV="";
-                switcherBeetweenSmallTV=2;
+                bOperations(DEVIDE);
                 break;
-            case R.id.clearBtn:
-                valuseForSmallTV="";
-                switcherBeetweenSmallTV=0;
-                numA.setText(null);
-                numB.setText(null);
-                resultTV.setText(null);
-                whichOperation=0;
-                break;
+            //                             assigment digital buttons
             case R.id.b1:
-                setSmallTv("1");
+                bDigitals(1);
                 break;
             case R.id.b2:
-                setSmallTv("2");
+                bDigitals(2);
                 break;
             case R.id.b3:
-                setSmallTv("3");
+                bDigitals(3);
                 break;
             case R.id.b4:
-                setSmallTv("4");
+                bDigitals(4);
                 break;
             case R.id.b5:
-                setSmallTv("5");
+                bDigitals(5);
                 break;
             case R.id.b6:
-                setSmallTv("6");
+                bDigitals(6);
                 break;
             case R.id.b7:
-                setSmallTv("7");
+                bDigitals(7);
                 break;
             case R.id.b8:
-                setSmallTv("8");
+                bDigitals(8);
                 break;
             case R.id.b9:
-                setSmallTv("9");
+                bDigitals(9);
                 break;
             case R.id.b0:
-                setSmallTv("0");
+                bDigitals(0);
                 break;
+            //                                asiggment: other buttons
             case R.id.bEquals:
-                calculate();
+                bEquals();
+            case R.id.clearBtn:
+                clear();
+                break;
         }
     }
 
+    public void clear (){
+        switcher=0;
+        tvOperation.setText(null);
+        tvNumA.setText(null);
+        tvNumB.setText(null);
+        opetation=0;
+        tvResultHistory.setText(null);
+    }
 
-    public void calculate(){
-        makeToast("куку");
-        Math math = new Math();
+    public void bOperations(int operation){
+        switcher=1;
+        switch (operation){
+            case(SUM):
+                tvOperation.setText("+");
+                opetation=SUM;
+                break;
+            case(SUBSTRACT):
+                tvOperation.setText("-");
+                opetation=SUBSTRACT;
+                break;
+            case(MULTIPLY):
+                tvOperation.setText("*");
+                opetation=MULTIPLY;
+                break;
+            case(DEVIDE):
+                tvOperation.setText("/");
+                opetation=DEVIDE;
+                break;
+        }
+    }
+
+    public void bDigitals(int buttonValue){
+        //numA=0
+        //nuB=1
+        //operations=2
+        //TODO empty fields checking
+
+        switch (switcher){
+            case (0):
+                tvNumA.append(String.valueOf(buttonValue));
+                break;
+            case(1):
+                tvNumB.append(String.valueOf(buttonValue));
+                break;
+        }
+    }
+
+    public void bEquals(){
         String a=tvNumA.getText().toString();
         String b=tvNumB.getText().toString();
-        tvEquals.setText("=");
-
-        switch(whichOperation){
-            case 0 :
-                resultTV.setText(math.getResult(a,b,whichOperation));
-                tvResultHistory.setText(math.getResult(a,b,whichOperation));
-                break;
-            case 1 :
-                break;
-            case 2 :
-                break;
-            case 3 :
-                break;
+        if(a.equals("0301")&b.equals("1994")){
+            olololol();
         }
-    }
-
-    public void setSmallTv(String buttonVal){
-        //0 for num A
-        //1 for Operation
-        //2 for num B
-        //3 for Equals
-        //4 for Result
-
-        switch (switcherBeetweenSmallTV){
-            case (0):
-                tvNumA.setText(valuseForSmallTV);
-                valuseForSmallTV=valuseForSmallTV+buttonVal;
-                break;
-            case (1):
-                tvOperation.setText(buttonVal);
-                break;
-            case (2):
-                tvNumB.setText(valuseForSmallTV);
-                valuseForSmallTV=valuseForSmallTV+buttonVal;
-                break;
-            case (3):
-                tvEquals.setText("-");
-                valuseForSmallTV=valuseForSmallTV+buttonVal;
-                break;
-            case (4):
-                tvResultHistory.setText(buttonVal);
-                break;
+        else{
+            tvResultHistory.setText("ololo");
+            resultTV.setText(math.getResult(a,b,opetation));
+            makeToast(a+",  "+b+",  "+opetation+"  ");
+            //tvResultHistory.setText(math.getResult(a,b,opetation));
         }
+
     }
 
     public void makeToast(String text) {
@@ -226,9 +219,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener{
 
         tv1.setText("☺\uD83C\uDF83  \uD835\uDD3Bａή\uD835\uDCD2ε ยｐ, ƒᵃ\uD835\uDCFBÃ\uD835\uDC1D\uD835\uDCD4\uD835\uDCDDŽα\n" +
                 "ｌＡ ρỖ\uD835\uDCECα ᵈє \uD835\uDC0B\uD835\uDCD0 ℂσ\uD835\uDCB8\uD835\uDCD0  \uD83D\uDC2F♬");
-
-        historyTV=findViewById(R.id.historyTV);
-        historyTV.setText("(っ◔◡◔)っ ♥ Dance Faradenza");
 
         x1.setText("♀");
         x2.setText("☼");

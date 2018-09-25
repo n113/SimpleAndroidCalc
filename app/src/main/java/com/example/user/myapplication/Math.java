@@ -26,15 +26,7 @@ public class Math {
 
         switch(operation){
             case 0 :
-                if(a==07.01&&b==1992){
-                    toReturn="olololo";
-                }
-                else if(a==03.01&&b==1994){
-                    toReturn="olololol";
-                }
-                else{
-                    toReturn= String.valueOf(sum(a,b));
-                }
+                toReturn= String.valueOf(sum(a,b));
                 break;
             case 1 :
                 toReturn= String.valueOf(subs(a,b));
